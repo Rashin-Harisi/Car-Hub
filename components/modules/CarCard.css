@@ -1,0 +1,27 @@
+.carCard{
+    @apply flex flex-col w-[500px] p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl
+}
+.content{
+    @apply  w-full flex justify-between items-start gap-2
+}
+.content h2{
+    @apply text-[22px] leading-[26px] font-bold capitalize
+}
+.price{
+    @apply flex mt-6 text-[32px] leading-[38px] font-extrabold
+}
+.imageContainer{
+    @apply relative w-full h-40 my-3 object-contain
+}
+.detailContainer{
+    @apply   flex w-full group-hover:invisible justify-between text-gray-500
+}
+.detailContainer_subContainer{
+    @apply flex flex-col justify-center items-center gap-2
+}
+.detailContainer_subContainer p{
+    @apply text-[14px] leading-[17px] font-medium
+}
+.viewButton{
+   @apply hidden group-hover:flex absolute bottom-0 w-full z-10 
+}

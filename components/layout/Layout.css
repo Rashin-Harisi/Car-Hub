@@ -1,0 +1,3 @@
+.logedin svg{
+    @apply text-2xl lg:text-4xl lg:text-white
+}

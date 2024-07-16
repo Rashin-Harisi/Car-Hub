@@ -1,0 +1,15 @@
+.input{
+    @apply border border-black-100 rounded-lg mb-10
+}
+.header{
+    @apply text-[#304ffe] mb-3 text-center font-bold text-lg
+}
+.label{
+    @apply text-[#304ffe] mb-3 font-semibold text-base
+}
+.button{
+    @apply bg-[#304ffe] text-white w-[50%] mx-auto text-lg
+}
+.havingAccount{
+    @apply text-black-100 text-center mt-3
+}
