@@ -25,10 +25,10 @@ const SearchManufacture = ({ manufacture, setManufacture }: {
                         <Image src='/car-logo.svg' width={20}
                             height={20} alt='carLogo' className="ml-4" />
                     </ComboboxButton>
-                    <ComboboxInput placeholder="Volkswagen"
+                    <ComboboxInput placeholder="Volkswagen..."
                         className={clsx("rounded-lg pl-12 p-4 border w-full h-[48px]",
                              "outline-none focus:outline-gray-200 bg-light-white", 
-                             "cursor-pointer text-sm")}
+                             "cursor-pointer text-sm ")}
                         displayValue={(manufacture: string) => manufacture}
                         onChange={(e) => setQuery(e.target.value)} />
                 </div>

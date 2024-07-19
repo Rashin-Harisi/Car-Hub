@@ -1,0 +1,9 @@
+.searchbox{
+   @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl
+}
+.items{
+    @apply flex-1 flex  justify-start items-center relative
+}
+.input{
+    @apply rounded-lg pl-12 p-4 border w-full h-[48px] outline-none focus:outline-gray-200 bg-light-white cursor-pointer text-sm
+}

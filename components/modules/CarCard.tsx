@@ -6,6 +6,7 @@ import { useState } from "react";
 import './CarCard.css';
 import CustomButton from "./CustomButton";
 import CarDetails from "./CarDetails";
+import { generateImageUrl } from "@/utils/rapidApi";
 
 export interface CarProps {
     city_mpg: number;
@@ -39,7 +40,7 @@ const CarCard = ({ car }: carCardProps) => {
                 <span className="self-end text-[14px] leading-[17px] font-medium">/day</span>
             </p>
             <div className="imageContainer">
-                <Image src='/hero.png' alt='car image' fill priority className="object-contain" />
+                <Image src={generateImageUrl(car)} alt='car image' fill priority className="object-contain" />
             </div>
             <div className="relative w-full flex ">
                 <div className="detailContainer">

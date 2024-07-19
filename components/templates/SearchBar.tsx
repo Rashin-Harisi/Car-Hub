@@ -1,40 +1,36 @@
+"use client"
 
-import  './SearchBar.css'
+import './SearchBar.css'
 import CustomFilter from '../modules/CustomFilter'
 import SearchBox from '../modules/SearchBox'
-import { fetchCar } from '@/utils/rapidApi'
-import CarCard from '../modules/CarCard'
+import { fuels, yearsOfProduction } from '@/constants'
+import CustomButton from '../modules/CustomButton'
+import { useRouter } from 'next/navigation'
 
-const SearchBar = async() => {
-    const allCars= await fetchCar()
-    console.log(allCars);
-    const isEmpty= !Array.isArray(allCars) || !allCars || allCars.length<1;
-   
-  return (
-    <div id="searchBar" className="container">
-        <div className="title">
-            <h3>Car Catalogue</h3>
-            <p>Explore out cars you might like</p>
-        </div>
-        <div className="inputs">
-            <div className='mb-5 '>
-                <SearchBox/>
+const SearchBar = () => {
+    
+    const router= useRouter()
+    const deleteHandler= ()=>{router.push(window.location.pathname)}
+    return (
+        <div id="searchBar" className="container">
+            <div className="title">
+                <h3>Car Catalogue</h3>
+                <p>Explore out cars you might like</p>
             </div>
-            <div className="filtersContainer">
-                <CustomFilter/>
-                <CustomFilter/>
+            <div className="inputs">
+                <div className='mb-5'>
+                    <SearchBox />
+                </div>
+                <div className="filtersContainer">
+                    <CustomFilter title="fuel" options={fuels} />
+                    <CustomFilter title="year" options={yearsOfProduction} />
+                </div>
+                <CustomButton title='Clear Filters' btnType="button" 
+                    clickHandler={deleteHandler} buttonStyle="bg-primary-blue text-white rounded-full h-[40px]"
+                />
             </div>
         </div>
-        {isEmpty ? (
-                <p>Oops, There is no cars!</p>
-        ) : (
-            <section className='flex flex-wrap gap-10 justify-around'>
-                {allCars.map((car,index)=><CarCard car={car} key={index} />)}
-            </section>
-        ) }
-        
-    </div>
-  )
+    )
 }
 
 export default SearchBar

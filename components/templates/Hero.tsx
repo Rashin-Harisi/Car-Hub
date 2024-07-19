@@ -15,7 +15,7 @@ const Hero = () => {
                     Streamline your car rental experience with our effortless booking process.   
                 </p>
                 <CustomButton title="Explore Cars" 
-                buttonStyle="bg-primary-blue text-white mt-10 " />
+                buttonStyle="bg-primary-blue cursor-default text-white mt-10 rounded-full" />
             </div>
 
             <div className="flex xl:flex-[1.5] justify-end items-end 
