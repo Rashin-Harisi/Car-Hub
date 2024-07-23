@@ -1,5 +1,5 @@
-import CarCard from "@/components/modules/CarCard";
-import ShowMore from "@/components/modules/ShowMore";
+import CarCard from "@/components/templates/CarCard";
+import ShowMore from "@/components/templates/ShowMore";
 import Hero from "@/components/templates/Hero";
 import SearchBar from "@/components/templates/SearchBar";
 import { fetchCar } from "@/utils/rapidApi";
@@ -14,11 +14,12 @@ export default async function Home(searchParams: any) {
     limit: searchParams.searchParams.limit || 10,
     model: searchParams.searchParams.model || "",
   })
+  console.log(allCars);
   const isEmpty = !Array.isArray(allCars) || !allCars || allCars.length < 1;
   return (
     <div className="overflow-hidden">
       <Hero />
-      <SearchBar />
+      <SearchBar/>
       {isEmpty ? (
         <div className='mt-16 flex justify-center items-center flex-col gap-2;'>
           <h2 className='text-black text-xl font-bold'> Oops, no results.</h2>

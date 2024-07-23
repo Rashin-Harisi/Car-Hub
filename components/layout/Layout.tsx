@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { CgProfile } from "react-icons/cg";
 import  "./Layout.css"
+import Cart from "../templates/Cart";
 
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
@@ -29,6 +30,9 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
                                 <Link href="/dashboard">
                                     <CgProfile />
                                 </Link>
+                                <Link href="/checkout">
+                                    <Cart />
+                                </Link>
                             </div>
 
                         ) : (
@@ -41,7 +45,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
                     </nav>
                 </div>
             </header>
-            <div className="min-h-[760px]">{children}</div>
+            <div className="min-h-[600px]">{children}</div>
             <footer className="flex flex-col border-t border-gray-100
                  text-black-100 mt-5">
                 <div className="flex justify-between maz-md:flex-col flex-wrap gap-5 sm:px-16 px-6 py-10">

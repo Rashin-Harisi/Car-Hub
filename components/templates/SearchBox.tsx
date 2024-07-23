@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchManufacture from './SearchManufacture';
 import Image from 'next/image';
 import './SearchBox.css'
@@ -17,10 +17,17 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 )
 
-const SearchBox = () => {
+const SearchBox = ({reset}: {reset:boolean}) => {
   const [manufacture, setManufacture] = useState('')
   const [model, setModel] = useState("")
-const router = useRouter();
+  const router = useRouter();
+
+  useEffect(()=>{
+    if(reset){
+      setModel("")
+      setManufacture("")
+    }
+  },[reset])
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

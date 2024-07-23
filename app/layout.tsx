@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Layout from "@/components/layout/Layout";
 import NextAuthProvider from "@/providers/NextAuthProvider";
+import StoreProvider from "./StoreProvider";
 
 
 export const metadata: Metadata = {
@@ -14,12 +15,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   return (
     <html lang="en">
       <body>
         <NextAuthProvider>
-          <Layout>{children}</Layout>
+          <StoreProvider>
+            <Layout>{children}</Layout>
+          </StoreProvider>
         </NextAuthProvider>
       </body>
     </html>

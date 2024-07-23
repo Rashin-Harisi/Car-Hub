@@ -1,8 +1,15 @@
+"use client"
+
 import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { CarProps } from "./CarCard";
 import clsx from "clsx";
 import Image from "next/image";
 import { generateImageUrl } from "@/utils/rapidApi";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { quantityCalculator } from "@/utils/functions";
+import { TbShoppingBagCheck } from "react-icons/tb";
+import { addItem, decrease, increase, removeItem } from "@/lib/features/cart/cartSlice";
+import { MdDeleteOutline } from "react-icons/md";
 
 
 const CarDetails = ({ isOpen, closeModule, car }: {
@@ -10,6 +17,14 @@ const CarDetails = ({ isOpen, closeModule, car }: {
     closeModule: () => void;
     car: CarProps;
 }) => {
+    const id = car.id;
+    const dispatch = useAppDispatch();
+    const state = useAppSelector(state => state.cart);
+    const quantity = quantityCalculator(state, id)
+    //console.log(car);
+    //console.log("dispatch", dispatch);
+    //console.log("state", state);
+
     return (
         <>
             <Transition show={isOpen}>
@@ -35,13 +50,13 @@ const CarDetails = ({ isOpen, closeModule, car }: {
                                     </div>
                                     <div className="flex gap-3">
                                         <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                                            <Image src={generateImageUrl(car,"29")} alt='car image' fill priority className="object-contain" />
+                                            <Image src={generateImageUrl(car, "29")} alt='car image' fill priority className="object-contain" />
                                         </div>
                                         <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                                            <Image src={generateImageUrl(car,"33")} alt='car image' fill priority className="object-contain" />
+                                            <Image src={generateImageUrl(car, "33")} alt='car image' fill priority className="object-contain" />
                                         </div>
                                         <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                                            <Image src={generateImageUrl(car,"13")} alt='car image' fill priority className="object-contain" />
+                                            <Image src={generateImageUrl(car, "13")} alt='car image' fill priority className="object-contain" />
                                         </div>
                                     </div>
                                 </div>
@@ -50,12 +65,34 @@ const CarDetails = ({ isOpen, closeModule, car }: {
                                         {car.make} {car.model}
                                     </h2>
                                     <div className="mt-3 flex flex-col gap-4" >
-                                        {Object.entries(car).map(([key,value])=>(
-                                            <div key={key} className="flex justify-between w-full">
-                                                <h4 className="capitalize text-gray-500">{key.split("_").join(" ")}</h4>
-                                                <p className="text-black-100 font-semibold">{value}</p>
-                                            </div>
+                                        {Object.entries(car).map(([key, value]) => (
+                                            (key !== "id" && key!== "price") && (
+
+                                                <div key={key} className="flex justify-between w-full">
+                                                    <h4 className="capitalize text-gray-500">{key.split("_").join(" ")}</h4>
+                                                    <p className="text-black-100 font-semibold">{value}</p>
+                                                </div>
+                                            )
+
                                         ))}
+                                    </div>
+                                </div>
+                                <div className="flex justify-between bg-primary-blue text-white rounded-lg px-3 py-4">
+                                    <p>Do you want to rent it?</p>
+                                    <div className="flex items-center gap-2">
+                                        {quantity === 1 && (
+                                            <button onClick={() => dispatch(removeItem(car))}><span className="text-xl"><MdDeleteOutline /></span></button>
+                                        )}
+                                        {quantity > 1 && (
+                                            <button onClick={() => dispatch(decrease(car))}><span className="text-xl">-</span></button>
+                                        )}
+                                        {!!quantity && <span className="rounded-full w-6 h-6 bg-white text-black text-center py-auto mx-2">{quantity}</span>}  
+                                        {quantity === 0 ? (
+                                            <button onClick={() => dispatch(addItem(car))}><span className="text-xl"><TbShoppingBagCheck /></span></button>
+                                        ) : (
+                                           <><button onClick={() => dispatch(increase(car))}><span className="text-xl">+</span></button> Day(s)</>
+                                        )}
+                                        
                                     </div>
                                 </div>
                             </DialogPanel>

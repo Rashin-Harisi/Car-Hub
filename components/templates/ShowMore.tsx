@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import React from 'react'
-import CustomButton from './CustomButton';
+import CustomButton from '../modules/CustomButton';
 import { updateSearchParams } from '@/utils/functions';
 
 interface ShowMoreProps{

@@ -4,7 +4,7 @@ import { calculateCarRent } from "@/utils/functions";
 import Image from "next/image";
 import { useState } from "react";
 import './CarCard.css';
-import CustomButton from "./CustomButton";
+import CustomButton from "../modules/CustomButton";
 import CarDetails from "./CarDetails";
 import { generateImageUrl } from "@/utils/rapidApi";
 
@@ -21,6 +21,8 @@ export interface CarProps {
     model: string;
     transmission: string;
     year: number;
+    id : string ;
+    price: string;
 }
 interface carCardProps {
     car: CarProps

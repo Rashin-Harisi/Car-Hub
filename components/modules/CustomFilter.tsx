@@ -5,11 +5,12 @@ import './CustomFilter.css'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface CustomFilterProps {
   title: string;
-  options: OptionProps[]
+  options: OptionProps[];
+  reset: boolean;
 }
 interface OptionProps {
   title: string;
@@ -18,16 +19,21 @@ interface OptionProps {
 
 
 
-const CustomFilter = ({ title, options }: CustomFilterProps) => {
+const CustomFilter = ({ title, options, reset }: CustomFilterProps) => {
   const [selected, setSelected] = useState(options[0]);
   const router= useRouter();
+  useEffect(()=>{
+    if(reset){
+      setSelected(options[0])
+    }
+  },[reset])
 
   const handleUpdateParams= (e: {title:string;value:string})=>{
     const newPath= updateSearchParams(title,e.value.toLowerCase());
     router.push(newPath);
   }
   return (
-    <div className='w-fit'>
+    <div className='w-fit mr-2'>
       <Listbox value={selected} onChange={
         (e)=>{
           setSelected(e);

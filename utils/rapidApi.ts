@@ -1,4 +1,6 @@
-import { CarProps } from "@/components/modules/CarCard";
+import { CarProps } from "@/components/templates/CarCard";
+import { v4 as uuidv4 } from 'uuid';
+import { calculateCarRent } from "./functions";
 
 export interface filterProps{
     manufacture ?:string;
@@ -19,7 +21,12 @@ export async function fetchCar(filters:filterProps){
         headers
     });
     const result = await response.json();
-    return result;
+    const dataWithId= result.map ((item:any)=>({...item,id:uuidv4()}))
+    const dataWithCarRent = dataWithId.map ((item:any)=>(
+        {...item,
+        price: calculateCarRent(item.city_mpg, item.year)}))
+    
+    return dataWithCarRent;
 }
 
 export const generateImageUrl = (car:CarProps , angle?:string)=>{

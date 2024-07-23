@@ -13,5 +13,5 @@
     @apply text-xl text-black font-normal mb-5
 }
 .filtersContainer{
-    @apply flex flex-col lg:flex-row
+    @apply flex mb-3
 }
