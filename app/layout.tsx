@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: "Discover world's best car showcase application",
 };
 
+
 export default async function RootLayout({
   children,
 }: Readonly<{

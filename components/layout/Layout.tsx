@@ -48,7 +48,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
             <div className="min-h-[600px]">{children}</div>
             <footer className="flex flex-col border-t border-gray-100
                  text-black-100 mt-5">
-                <div className="flex justify-between maz-md:flex-col flex-wrap gap-5 sm:px-16 px-6 py-10">
+                <div className="flex justify-between max-md:flex-col flex-wrap gap-5 sm:px-16 px-6 py-10">
                     <div className="flex flex-col justify-start items-start gap-5">
                         <Image src="/logo.svg" alt="Logo"
                             width={118} height={18} className="object-contain" />

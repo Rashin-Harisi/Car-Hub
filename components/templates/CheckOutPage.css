@@ -1,0 +1,13 @@
+.navbarItems{
+    @apply flex items-center  gap-2 h-10 pl-3
+}
+.navbarItems svg{
+    @apply text-lg  text-[#274C77] font-semibold
+}
+.navbarItems p{
+    @apply font-bold
+}
+
+.navbarItems span{
+    @apply text-lg font-semibold
+}

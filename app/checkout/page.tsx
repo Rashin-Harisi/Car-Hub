@@ -1,8 +1,7 @@
+import CheckOutPage from "@/components/templates/CheckOutPage"
 
 const Checkout = () => {
-  return (
-    <div>page</div>
-  )
+  return <CheckOutPage />
 }
 
 export default Checkout
