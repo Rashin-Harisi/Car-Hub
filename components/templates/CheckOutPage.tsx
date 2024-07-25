@@ -16,15 +16,26 @@ import { redirect, useRouter } from 'next/navigation'
 const CheckOutPage = () => {
     const [address,setAddress]=useState("")
     const [city,setCity]=useState("")
+    const [phone,setPhone]=useState("")
     const [note,setNote]=useState("")
     //console.log(address,city,note);
+    
 
     const state = useAppSelector(state => state.cart)
     const dispatch = useAppDispatch()
     const router= useRouter()
 
-    const clickHandler =()=>{
-        if(!address || !city) return alert("Please fill required information first.")
+    const clickHandler =async()=>{
+        if(!address || !city || !phone) return alert("Please fill required information first.")
+        const res= await fetch('/api/log',{
+            method: "POST",
+            body: JSON.stringify({address,city,phone,note,items:state.selectedCars}),
+            headers: {
+                "Content-Type": "application/json",
+              },
+        })
+        const data= await res.json();
+        console.log("data",data);
         dispatch(checkout())
         alert("Thank you for your tryst. We hope to see you again")
         router.push('/')
@@ -59,9 +70,10 @@ const CheckOutPage = () => {
                         ))
                     )}
                     {state.next && state.selectedCars.length !== 0 && (
-                        <div className='flex flex-col h-[500px] w-[90%] mx-auto mt-5'>
+                        <div className='flex flex-col h-[650px] w-[90%] mx-auto mt-5'>
                             <div> <Form
-                                setAddress={setAddress}                               
+                                setAddress={setAddress} 
+                                setPhone={setPhone}                              
                                 setCity={setCity}
                                 setNote={setNote} /></div>
                             <button className="bg-blue-500 text-white w-full h-[40px] rounded-lg mt-5"
