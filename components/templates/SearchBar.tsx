@@ -11,7 +11,7 @@ import { useState } from 'react'
 const SearchBar = () => {
     const [reset,setReset] = useState(false)
     const router= useRouter()
-    console.log("reset", reset);
+    //console.log("reset", reset);
     
     const deleteHandler= ()=>{
         setReset(true)

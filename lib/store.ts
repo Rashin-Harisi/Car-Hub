@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { cartReducer } from './features/cart/cartSlice'
+import {FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import {persistReducer, persistStore} from 'redux-persist'
-
+//import AsyncStorage from '@react-native-community/async-storage';
 
 const persistConfig = {
   key: 'cart',
   version: 1,
-  storage,
+  storage : typeof window !== 'undefined' ? storage : null,
 }
 
 const persistedReducer = persistReducer(persistConfig,cartReducer)
@@ -16,7 +16,13 @@ const persistedReducer = persistReducer(persistConfig,cartReducer)
 export const store = configureStore({
     reducer: {
         cart: persistedReducer,
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      })
   })
 
 

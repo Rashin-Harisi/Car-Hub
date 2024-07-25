@@ -99,3 +99,16 @@ export const manufacturers = [
       ],
     },
   ];
+
+
+
+
+  export const citiesAustria = [
+    "City","Vienna", "Graz", "Linz", "Salzburg", "Innsbruck", "Klagenfurt", 
+    "Bregenz", "Eisenstadt", "St. Pölten", "Wels", "Steyr", "Villach", 
+    "Dornbirn", "Wolfsberg", "Leoben", "Leonding", "Traun", "Amstetten", 
+    "Krems an der Donau", "Kapfenberg", "Hallein", "Traiskirchen", 
+    "Baden bei Wien", "Sankt Veit an der Glan", "Mödling", 
+    "Tulln an der Donau", "Feldkirch", "Schwechat", "Bad Ischl", 
+    "Bludenz", "Gmunden", "Kufstein", "Zwettl"
+]
