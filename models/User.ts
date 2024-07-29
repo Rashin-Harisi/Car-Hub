@@ -1,8 +1,13 @@
 import { Schema, models, model } from "mongoose";
 
-interface IUser{
+export interface IUser{
     email: string;
     password: string;
+    name:string;
+    phone:string;
+    address:string;
+    license:string;
+    picture:string;
     createdAt: Date;
 }
 
@@ -15,7 +20,21 @@ const userSchema= new Schema<IUser>({
         type: String,
         required: true,
     },
-    
+    name:{
+        type:String
+    },
+    phone:{
+        type:String
+    },
+    address:{
+        type:String
+    },
+    license:{
+        type:String
+    },
+    picture:{
+        type:String
+    },
     createdAt:{
         type:Date,
         default : ()=>Date.now(),

@@ -7,7 +7,7 @@ import UserLogs from './UserLogs';
 
 
 const DashboardPage = ({session}: any) => {
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className='flex gap-3 h-[500px]'>
       <Navbar session={session} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>

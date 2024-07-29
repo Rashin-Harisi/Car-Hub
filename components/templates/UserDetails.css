@@ -1,0 +1,6 @@
+.title{
+    @apply gap-10 border border-dashed border-gray-500  grid grid-cols-custom  mb-4
+}
+.info{
+    @apply font-semibold border border-r-gray-500 pl-5 flex justify-center items-center
+}

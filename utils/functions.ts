@@ -45,3 +45,28 @@ export const sumQuantity = (products:Array<any>)=>{
 export const sumPrice= (products:Array<any>)=>{
   return products.reduce((acc,cur)=> acc + cur.price * cur.quantity , 0).toFixed(2)
 }
+
+
+export function convertTimestampToDDMMYYYY(timestamp) {
+  // Parse the input timestamp to a Date object
+  let date = new Date(timestamp);
+  // Extract the day, month, and year
+  let day = String(date.getUTCDate()).padStart(2, '0');
+  let month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
+  let year = date.getUTCFullYear();
+  // Format the date as "dd/mm/yyyy"
+  let formattedDate = `${day}/${month}/${year}`;
+  return formattedDate;
+}
+
+export function imageBase64 (file){
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  const data= new Promise((resolve,reject)=>{
+    reader.onload= ()=>resolve(reader.result)
+    reader.onerror= (error)=>reject(error)
+  })
+  return data
+}
+
+

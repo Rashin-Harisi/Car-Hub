@@ -25,6 +25,9 @@ const config: Config = {
         },
         grey: "#747A88",
       },
+      gridTemplateColumns:{
+        "custom": "150px auto"
+      }
     },
   },
   plugins: [],

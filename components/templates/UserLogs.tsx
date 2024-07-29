@@ -15,7 +15,7 @@ export interface logsProp{
 const UserLogs =  () => {
     const [logs,setLogs] = useState<logsProp[]>([])
     const [loading,setLoading] = useState(false)
-    console.log("logs", logs);
+    //console.log("logs", logs);
     useEffect(()=>{
         const fetchData= async()=>{
             setLoading(true)

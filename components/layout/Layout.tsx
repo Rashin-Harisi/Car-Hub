@@ -45,7 +45,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
                     </nav>
                 </div>
             </header>
-            <div className="min-h-[600px]">{children}</div>
+            <div className="min-h-[900px]">{children}</div>
             <footer className="flex flex-col border-t border-gray-100
                  text-black-100 mt-5">
                 <div className="flex justify-between max-md:flex-col flex-wrap gap-5 sm:px-16 px-6 py-10">
