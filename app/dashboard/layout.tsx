@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 const DashboardLayout = ({children}: {children:React.ReactNode}) => {
   return (
-    <div className="relative top-[100px] max-w-[1200px] mx-auto">
+    <div className="relative top-[100px] max-w-[1200px] mx-auto min-h-[500px]">
         {children}
     </div>
   )

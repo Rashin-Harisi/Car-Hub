@@ -12,7 +12,7 @@ import Cart from "../templates/Cart";
 const Layout = async ({ children }: { children: React.ReactNode }) => {
 
     const session = await getServerSession(authOptions);
-    console.log(session);
+    //console.log(session);
 
     return (
         <div>
@@ -39,13 +39,13 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
                             <Link href='/auth/signin'>
                                 <CustomButton title='Sign in' btnType="button"
                                     buttonStyle="text-primary-blue 
-                                bg-white min-w-[130px]"/>
+                                bg-white min-w-[100px] rounded-lg"/>
                             </Link>
                         )}
                     </nav>
                 </div>
-            </header>
-            <div className="min-h-[900px]">{children}</div>
+            </header> 
+            <div className="min-h-[1400px] sm:min-h-[900px]">{children}</div>
             <footer className="flex flex-col border-t border-gray-100
                  text-black-100 mt-5">
                 <div className="flex justify-between max-md:flex-col flex-wrap gap-5 sm:px-16 px-6 py-10">

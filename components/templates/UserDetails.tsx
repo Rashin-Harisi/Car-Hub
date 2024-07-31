@@ -83,7 +83,7 @@ export const UserDetailsRawForm = () => {
   const [license, setLicense] = useState("")
   const [picture, setPicture] = useState("")
   const router = useRouter();
-  console.log(router);
+  //console.log(router);
 
   const submitHandler = async () => {
     const res = await fetch('/api/user', {
@@ -100,7 +100,7 @@ export const UserDetailsRawForm = () => {
   const uploadLicense = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      const image = await imageBase64(file)
+      const image  = await imageBase64(file)
       setLicense(image)
     }
   }

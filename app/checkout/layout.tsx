@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 const CheckoutLayout = ({children}: {children:React.ReactNode}) => {
   return (
-    <div className="relative top-[100px] xl:max-w-[1200px] md:max-w-[1000px] pl-3 mx-auto">
+    <div className="relative top-[100px] xl:max-w-[1200px] md:max-w-[1000px] pl-3 mx-auto ">
         {children}
     </div>
   )

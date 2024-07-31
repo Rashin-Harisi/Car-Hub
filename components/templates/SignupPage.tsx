@@ -62,7 +62,7 @@ const SignupPage = () => {
                     value={rePassword}
                     onChange={(e) => setRePassword(e.target.value)} />
                     {loading ? "Loading..." :(
-                        <CustomButton title='submit' btnType="submit"
+                        <CustomButton title='Signup' btnType="submit"
                         clickHandler={clickHandler} buttonStyle="button"/>
                     )}
             </form>

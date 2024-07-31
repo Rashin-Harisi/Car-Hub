@@ -32,7 +32,7 @@ const LogCard = ({ data }: any) => {
   
   return (
     <div className="border border-dashed border-gray-500 mb-5 rounded-lg ">
-      <div className="flex justify-between px-5 h-[50px] py-3 border border-b-gray-200">
+      <div className="flex flex-col sm:flex-row justify-between px-5 h-[150px] sm:h-[50px] py-3 border border-b-gray-200">
         <p><span className="font-semibold">Address : </span>{address}</p>
         <p><span className="font-semibold">Phone : </span>{phone}</p>
         <p><span className="font-semibold">Date : </span>{date}</p>
@@ -40,7 +40,7 @@ const LogCard = ({ data }: any) => {
       {loading ? "Loading..." : (
         details?.length !== 0 ? (
           <div >{details.map((item, index) => (
-            <div className="flex justify-around gap-5 w-[90%] mx-auto border border-gray-500 my-2" key={index}>
+            <div className="flex flex-col sm:flex-row pl-5 sm:pl-0 justify-around gap-5 w-[90%] mx-auto border border-gray-500 my-2" key={index}>
               <h2 className="capitalize"><span className="font-semibold">Model : </span>{item.make} {item.model}</h2>
               <p><span className="font-semibold">Duration : </span>{item.quantity} Day(s)</p>
               <p><span className="font-semibold">Price : </span>{item.total} €</p>

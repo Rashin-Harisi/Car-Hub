@@ -5,6 +5,7 @@ import NextAuthProvider from "@/providers/NextAuthProvider";
 import StoreProvider from "./StoreProvider";
 
 
+
 export const metadata: Metadata = {
   title: "Car Hub",
   description: "Discover world's best car showcase application",
@@ -22,7 +23,9 @@ export default async function RootLayout({
       <body>
         <NextAuthProvider>
           <StoreProvider>
-            <Layout>{children}</Layout>
+            <Layout>
+              {children}
+            </Layout>
           </StoreProvider>
         </NextAuthProvider>
       </body>
