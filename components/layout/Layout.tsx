@@ -1,50 +1,27 @@
 import Image from "next/image"
-import CustomButton from "../modules/CustomButton"
 import Link from "next/link"
 import { footerLinks } from "@/constants"
 import { getServerSession } from "next-auth";
 import { CgProfile } from "react-icons/cg";
-import  "./Layout.css"
+import { IoMdLogIn } from "react-icons/io";
+import "./Layout.css"
 import Cart from "../templates/Cart";
 import { authOptions } from "@/utils/authOptions";
+import connectDB from "@/utils/connectDB";
+import User from "@/models/User";
+import Header from "../templates/Header";
 
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
 
     const session = await getServerSession(authOptions);
-    //console.log(session);
+    await connectDB();
+    const user = await User.findOne({email:session?.user?.email})
+   
 
     return (
         <div>
-            <header>
-                <div className="w-full z-10 absolute">
-                    <nav className="flex justify-between items-center max-w-[1440px] 
-                    mx-auto sm:px-16 px-6 py-4 bg-transparent"
-                    >
-                        <Link href='/' className="flex justify-center items-center">
-                            <Image src="/logo.svg" alt="Logo"
-                                width={118} height={18} className="object-contain" />
-                        </Link>
-                        {session ? (
-                            <div className="logedin">
-                                <Link href="/dashboard">
-                                    <CgProfile />
-                                </Link>
-                                <Link href="/checkout">
-                                    <Cart />
-                                </Link>
-                            </div>
-
-                        ) : (
-                            <Link href='/auth/signin'>
-                                <CustomButton title='Sign in' btnType="button"
-                                    buttonStyle="text-primary-blue 
-                                bg-white min-w-[100px] rounded-lg"/>
-                            </Link>
-                        )}
-                    </nav>
-                </div>
-            </header> 
+            <Header data={user} />
             <div className="min-h-[1400px] sm:min-h-[900px]">{children}</div>
             <footer className="flex flex-col border-t border-gray-100
                  text-black-100 mt-5">

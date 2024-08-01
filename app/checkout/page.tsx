@@ -12,6 +12,9 @@ const Checkout = async() => {
         return <Alert data="Please upload your license first!"/>
       }
   }
+  if(!session){
+    return <Alert data="Please login to your account first"/>
+  }
   return <CheckOutPage />
 }
 

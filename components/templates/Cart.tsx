@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <div className="flex relative">
         <BsCart4 />
-        { length>0 && <span className="xl:text-black text-white text-center flex justify-center items-center bg-blue-500 rounded-full w-5 h-5 -right-2 -top-1 z-10 absolute">{length}</span>}
+        { length>0 && <span className="xl:text-black  text-white text-center flex justify-center items-center bg-blue-500 rounded-full w-5 h-5 -right-4 -top-2 z-10 absolute">{length}</span>}
     </div>
   )
 }
