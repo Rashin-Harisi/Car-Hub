@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 
 
 const UserDetails = () => {
-  const [info, setInfo] = useState<IUser[]>([])
+  const [info, setInfo] = useState<IUser>()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const UserDetails = () => {
 
   return (
     <>
-      {loading ? "Loading..." : (info.name ? <UserDetailsForm info={info} /> : <UserDetailsRawForm />)}
+      {loading ? "Loading..." : (info?.name ? <UserDetailsForm info={info} /> : <UserDetailsRawForm />)}
     </>
   )
 }
@@ -37,7 +37,7 @@ export default UserDetails
 
 
 
-export const UserDetailsForm = ({ info }: IUser[]) => {
+export const UserDetailsForm = ({ info }: any) => {
   return (
     <div className="w-[90%] mx-auto flex flex-col">
       <h2 className='font-semibold text-center text-xl mb-7'>User information</h2>
@@ -100,14 +100,14 @@ export const UserDetailsRawForm = () => {
   const uploadLicense = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      const image  = await imageBase64(file)
+      const image:any  = await imageBase64(file)
       setLicense(image)
     }
   }
   const uploadPicture = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      const image = await imageBase64(file)
+      const image:any = await imageBase64(file)
       setPicture(image)
     }
   }

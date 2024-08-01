@@ -30,7 +30,7 @@ export const deleteSearchParams= ( type: string)=>{
 }
 
 
-export const quantityCalculator= (state,id)=>{
+export const quantityCalculator= (state:any,id:any)=>{
   const index= state.selectedCars.findIndex((item:any)=>item.id === id);
   if(index=== -1){ return 0}else{
     return state.selectedCars[index].quantity
@@ -47,7 +47,7 @@ export const sumPrice= (products:Array<any>)=>{
 }
 
 
-export function convertTimestampToDDMMYYYY(timestamp) {
+export function convertTimestampToDDMMYYYY(timestamp:any) {
   // Parse the input timestamp to a Date object
   let date = new Date(timestamp);
   // Extract the day, month, and year
@@ -59,7 +59,7 @@ export function convertTimestampToDDMMYYYY(timestamp) {
   return formattedDate;
 }
 
-export function imageBase64 (file){
+export function imageBase64 (file:any){
   const reader = new FileReader();
   reader.readAsDataURL(file);
   const data= new Promise((resolve,reject)=>{

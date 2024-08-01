@@ -1,7 +1,7 @@
 import Navbar from '@/components/modules/Navbar'
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import DashboardPage from '@/components/templates/DashboardPage';
+import { authOptions } from '@/utils/authOptions';
 
 const Dashboard = async() => {
   const session= await getServerSession(authOptions)

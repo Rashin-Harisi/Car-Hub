@@ -1,8 +1,8 @@
 import CheckOutPage from "@/components/templates/CheckOutPage"
 import { getServerSession } from "next-auth"
-import { authOptions } from "../api/auth/[...nextauth]/route"
 import User from "@/models/User"
 import Alert from "@/components/templates/Alert"
+import { authOptions } from "@/utils/authOptions"
 
 const Checkout = async() => {
   const session = await getServerSession(authOptions)

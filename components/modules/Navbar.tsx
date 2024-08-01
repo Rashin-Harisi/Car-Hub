@@ -4,7 +4,7 @@ import { CiUser } from 'react-icons/ci';
 import { IoMdLogOut } from "react-icons/io";
 import { signOut } from 'next-auth/react';
 import { redirect} from 'next/navigation';
-import { useState } from 'react';
+
 
 interface NavbarProps{
   session:any;
@@ -15,7 +15,7 @@ const Navbar = ({session,activeIndex,setActiveIndex}:NavbarProps) => {
   
     if (!session) redirect('/auth/signin')
 
-  const handleClick =(index)=>{
+  const handleClick =(index:any)=>{
     setActiveIndex(index)
   }
   return (

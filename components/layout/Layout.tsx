@@ -3,10 +3,10 @@ import CustomButton from "../modules/CustomButton"
 import Link from "next/link"
 import { footerLinks } from "@/constants"
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { CgProfile } from "react-icons/cg";
 import  "./Layout.css"
 import Cart from "../templates/Cart";
+import { authOptions } from "@/utils/authOptions";
 
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
