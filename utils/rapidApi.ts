@@ -21,14 +21,15 @@ export async function fetchCar(filters:filterProps){
         headers
     });
     const result = await response.json();
-    if(result.length === 0){
-        const dataWithId= result.map ((item:any)=>({...item,id:uuidv4()}))
-        const dataWithCarRent = dataWithId.map ((item:any)=>(
-            {...item,
-            price: calculateCarRent(item.city_mpg, item.year)}))
-        
-        return dataWithCarRent;
+    if(!Array.isArray(result) || result.length === 0){
+        return []
     }
+    const dataWithId= result.map ((item:any)=>({...item,id:uuidv4()}))
+    const dataWithCarRent = dataWithId.map ((item:any)=>(
+        {...item,
+        price: calculateCarRent(item.city_mpg, item.year)}))
+    
+    return dataWithCarRent;
 }
 
 export const generateImageUrl = (car:CarProps , angle?:string)=>{
