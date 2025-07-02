@@ -21,7 +21,7 @@ const SearchBar = () => {
     }
     return (
         <div id="searchBar" className="container">
-            <div className="title">
+            <div className="title flex flex-col">
                 <h3>Car Catalogue</h3>
                 <p>Explore out cars you might like</p>
             </div>

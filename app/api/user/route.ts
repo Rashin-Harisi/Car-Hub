@@ -7,7 +7,7 @@ export async function GET(){
     try {
         await connectDB();
         const session = await getServerSession();
-        const user = await User.findOne({email: session?.user?.email});
+        const user = await User.findOne({email: session?.user?.email}).lean();
         return NextResponse.json({
             data:user
         },{status: 200})

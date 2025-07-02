@@ -12,7 +12,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
     const session = await getServerSession(authOptions);
     await connectDB();
-    const user = await User.findOne({email:session?.user?.email})
+    const user = await User.findOne({email:session?.user?.email}).lean()
    
 
     return (

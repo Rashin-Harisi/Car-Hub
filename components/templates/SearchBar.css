@@ -1,17 +1,17 @@
-.container{
-    @apply  max-w-[1440px] mx-auto sm:px-16 px-6 py-4 mt-5 flex flex-col
+.container {
+  @apply max-w-[1440px] mx-auto sm:px-16 px-6 py-4 mt-5 flex flex-col;
 }
 
-.inputs{
-    @apply flex justify-between flex-col lg:flex-row
+.inputs {
+  @apply flex justify-between flex-col lg:flex-row;
 }
 
-.title h3{
-    @apply text-5xl font-bold text-black-100 my-3
+.title h3 {
+  @apply text-5xl font-bold text-black-100 my-3;
 }
-.title p{
-    @apply text-xl text-black font-normal mb-5
+.title p {
+  @apply text-xl text-black font-normal mb-5;
 }
-.filtersContainer{
-    @apply flex mb-3
+.filtersContainer {
+  @apply flex mb-3;
 }

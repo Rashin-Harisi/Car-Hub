@@ -42,7 +42,7 @@ export const UserDetailsForm = ({ info }: any) => {
     <div className="w-[90%] mx-auto flex flex-col">
       <h2 className='font-semibold text-center text-xl mb-7'>User information</h2>
       <div className="w-[90%] mx-auto">
-        <div className="title h-[200px]" >
+        <div className="title" >
           <p className="info">Driving License </p>
           <div className='h-[190px] object-contain relative w-full my-auto'>
             <Image src={info.license} className="object-contain" fill alt="license" />
