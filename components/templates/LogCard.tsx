@@ -16,7 +16,7 @@ const LogCard = ({ data }: any) => {
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    const newDetails = data.items.map((item:any) => ({
+    const newDetails = data?.items.map((item:any) => ({
       make: item.make,
       model: item.model,
       price: +item.price,

@@ -35,7 +35,7 @@ const CheckOutPage = () => {
               },
         })
         const data= await res.json();
-        console.log("data",data);
+        //console.log("data",data);
         dispatch(checkout())
         alert("Thank you for your tryst. We hope to see you again")
         router.push('/')
@@ -64,7 +64,7 @@ const CheckOutPage = () => {
                     )}
                 </div>
                 <div className='flex-1'>
-                    {state.selectedCars.length === 0 ? (<p className='text-xl font-semibold text-center w-[500px] py-5'>Empty!</p>) : (
+                    {state && state.selectedCars.length === 0 ? (<p className='text-xl font-semibold text-center w-[500px] py-5'>Empty!</p>) : (
                         state.selectedCars.map((item, index) => (
                             <CheckoutCard data={item} key={index} />
                         ))

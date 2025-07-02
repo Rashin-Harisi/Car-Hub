@@ -67,7 +67,6 @@ const CarDetails = ({ isOpen, closeModule, car }: {
                                     <div className="mt-3 flex flex-col gap-4" >
                                         {Object.entries(car).map(([key, value]) => (
                                             (key !== "id" && key!== "price") && (
-
                                                 <div key={key} className="flex justify-between w-full">
                                                     <h4 className="capitalize text-gray-500">{key.split("_").join(" ")}</h4>
                                                     <p className="text-black-100 font-semibold">{value}</p>
