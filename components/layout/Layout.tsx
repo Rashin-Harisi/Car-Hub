@@ -1,15 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { footerLinks } from "@/constants"
-import { getServerSession } from "next-auth";
-import { CgProfile } from "react-icons/cg";
-import { IoMdLogIn } from "react-icons/io";
-import "./Layout.css"
-import Cart from "../templates/Cart";
 import { authOptions } from "@/utils/authOptions";
 import connectDB from "@/utils/connectDB";
 import User from "@/models/User";
 import Header from "../templates/Header";
+import { getServerSession } from "next-auth";
 
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
