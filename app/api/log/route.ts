@@ -48,7 +48,7 @@ export async function POST(req:Request){
                 status: 400
             })
         }
-        const newLog= await Log.create({address,city, phone,items,note,userId:new Types.ObjectId(user._id)})
+        const newLog= await Log.create({address,city, phone,items,note,userId:user._id})
         return NextResponse.json({
             message:"Log is added"
         },{
