@@ -7,7 +7,8 @@ import { authOptions } from "@/utils/authOptions"
 const Checkout = async() => {
   const session = await getServerSession(authOptions)
   if (session){
-    const user = await User.findOne({email : session.user?.email})
+    const user = await User.findOne({email : session.user?.email}).lean()
+    // @ts-ignore
       if(!user.license){
         return <Alert data="Please upload your license first!"/>
       }

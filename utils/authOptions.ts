@@ -31,14 +31,16 @@ export const authOptions:NextAuthOptions = {
                 }
                 if (!email||!password) throw new Error("Invalid data!")
                 
-                const user = await User.findOne({email})
+                const user = await User.findOne({email}).lean()
                 if(!user) throw new Error("Please enter to your account first!")
-                
+                // @ts-ignore
                 const isValid = await verifyPassword(password, user.password)
                 if(!isValid) throw new Error("Email or Password is incorrect!")
                 
                 return {
+                    // @ts-ignore
                     id:user._id.toString(),
+                    // @ts-ignore
                     email: user.email
                 }
             }

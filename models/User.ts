@@ -3,11 +3,11 @@ import { Schema, models, model,Document } from "mongoose";
 export interface IUser extends Document{
     email: string;
     password: string;
-    name:string;
-    phone:string;
-    address:string;
-    license:string;
-    picture:string;
+    name?:string;
+    phone?:string;
+    address?:string;
+    license?:string;
+    picture?:string;
     createdAt: Date;
 }
 

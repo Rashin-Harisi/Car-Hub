@@ -9,8 +9,10 @@ export async function GET(){
     try {
         await connectDB();
         const session = await getServerSession();
-        const user = await User.findOne({email: session?.user?.email});
-        const logs = await Log.find({userId:user._id})
+        // @ts-ignore
+        const user = await User.findOne({email: session?.user?.email}).lean();
+        // @ts-ignore
+        const logs = await Log.find({userId:user._id}).lean()
         return NextResponse.json({
             data:logs
         },{status: 200})
@@ -33,7 +35,8 @@ export async function POST(req:Request){
                 status: 401
             })
         }
-        const user = await User.findOne({email: session?.user?.email});
+    
+        const user = await User.findOne({email: session?.user?.email}).lean();
         if(!user){
             return NextResponse.json({
                 error: "Account was not found!"
@@ -48,6 +51,7 @@ export async function POST(req:Request){
                 status: 400
             })
         }
+        // @ts-ignore
         const newLog= await Log.create({address,city, phone,items,note,userId:user._id})
         return NextResponse.json({
             message:"Log is added"

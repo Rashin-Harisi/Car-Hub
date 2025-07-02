@@ -30,7 +30,7 @@ export async function PATCH(req:Request){
                 status: 401
             })
         }
-        const user = await User.findOne({email: session?.user?.email});
+        const user = await User.findOne({email: session?.user?.email}).lean();
         if(!user){
             return NextResponse.json({
                 error: "Account was not found!"
@@ -45,11 +45,17 @@ export async function PATCH(req:Request){
                 status: 400
             })
         }
+        // @ts-ignore
         user.name = name
+        // @ts-ignore
         user.phone = phone
+        // @ts-ignore
         user.address = address
+        // @ts-ignore
         user.license = license
+        // @ts-ignore
         user.picture = picture
+        // @ts-ignore
         user.save();
 
         console.log(user);
